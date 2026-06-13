@@ -226,7 +226,7 @@ async function getFalloutNewVegasStatusPayload() {
       key: "steam-players",
       kind: "players",
       name: "Steam онлайн",
-      sourceLabel: "Steam Web API",
+      sourceLabel: "Steam",
       status: getStateFromStatus(steamPlayers !== null, steamPlayers !== null),
       value: steamPlayers,
       valueLabel: steamPlayers !== null ? String(steamPlayers) : "—",
@@ -234,7 +234,7 @@ async function getFalloutNewVegasStatusPayload() {
       url: FALLOUT_NV_STEAM_URL,
       title: "Fallout: New Vegas on Steam",
       description: "Текущий онлайн Fallout New Vegas в Steam. Это число игроков в PC Steam, а не публичный серверный онлайн.",
-      note: steamPlayersError ? "Steam API временно не ответил." : "Данные получены из официального Steam current players endpoint."
+      note: steamPlayersError ? "Страница Steam временно не ответила." : "Онлайн взят из официальных данных Steam."
     },
     {
       key: "gog-page",
@@ -267,8 +267,8 @@ async function getFalloutNewVegasStatusPayload() {
     {
       key: "xnvse-github",
       kind: "tool",
-      name: "xNVSE GitHub",
-      sourceLabel: "GitHub API",
+      name: "xNVSE",
+      sourceLabel: "xNVSE",
       status: getStateFromStatus(Boolean(xnvsePage?.ok)),
       value: xnvsePage?.status ?? null,
       valueLabel: toHttpValueLabel(xnvsePage?.status ?? null),
@@ -276,7 +276,7 @@ async function getFalloutNewVegasStatusPayload() {
       url: FALLOUT_NV_XNVSE_URL,
       title: xnvsePage?.title || "xNVSE / NVSE",
       description: "Репозиторий xNVSE — одного из главных инструментов для современного моддинга Fallout New Vegas.",
-      note: xnvsePageError ? "GitHub API xNVSE временно не ответил." : (xnvsePage?.ok ? "GitHub API xNVSE доступен." : "Источник xNVSE не подтвердил корректный ответ.")
+      note: xnvsePageError ? "Страница xNVSE временно не ответила." : (xnvsePage?.ok ? "Страница xNVSE доступна." : "Страница xNVSE не подтвердила корректный ответ.")
     }
   ];
 
